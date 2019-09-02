@@ -18,8 +18,21 @@ npm test
 (requires jest: npm i -g jest)
 */
 
+// input is an array of objects, where each object has two properties:
+// name : string
+// hasCoffee : boolean
+// openDoor should return true when at least one of those objects has the values:
+// name: Simon
+// hasCoffee : true
+
 function openDoor(input) {
 	// Your code here
+	for (let i = 0; i < input.length; i++) {
+		if (input[i].name === "Simon" && input[i].hasCoffee == true) {
+			return true;
+		}
+	}
+	return false;
 }
 module.exports = {
 	openDoor
