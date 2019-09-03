@@ -32,11 +32,28 @@ describe("productCost", () => {
   it("Should return the correct product price", () => {
     expect(shop.productCost(1)).toBe(4.32);
   });
+  it("Should return null when product is not found", () => {
+    expect(shop.productById(999)).toBe(null);
+  })
 });
 
 describe("formatAddress", () => {
   it("Should format the given user's address", () => {
     expect(shop.formatAddress('jane@doe.com')).toBe('12 Main St, Brisbane, 4000');
+  });
+});
+
+describe("customerOrderById", () => {
+  it("Should return the correct order for the orderId and customer", () => {
+    let order = shop.customerOrderById('jane@doe.com', 61721);
+    expect(order.id).toBe(61721);
+    expect(order.status).toBe("delivered");
+  });
+  it("Should return null when the customer isn't found", () => {
+    expect(shop.customerOrderById('nonexistent@email.com', 61721)).toBe(null);
+  });
+  it("Should return null when the order id isn't found", () => {
+    expect(shop.customerOrderById('jane@doe.com', 99999)).toBe(null);
   });
 });
 
