@@ -170,7 +170,12 @@ const shop = {
 	},
 
 	updateProductPrice: (id, newPrice) => {
-		// Update the price of a specific product
+		for (product of drinkShop.products) {
+			if (product.id == id) {
+				product.price = newPrice;
+			}
+		}
+		return true;
 	}
 }
 
