@@ -13,7 +13,10 @@ npm test
 */
 
 function vowels(string) {
-    // Your code here
+    // Matching against the regex
+    // g searches the whole string, i enforces case-insensitivity
+    let vowelsArray = string.match(/[aeiou]/gi);
+    return vowelsArray === null ? 0 : vowelsArray;
 }
 
 module.exports = {
