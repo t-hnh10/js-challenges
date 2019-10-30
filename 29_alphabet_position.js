@@ -9,7 +9,14 @@
 // # Should return "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"(as a string)
 
 function alphabet_position(text) {
-	// Your code here
+    let positions=""
+	for (let i=0; i<text.length;i++){
+        let letter = text.charAt(i).toUpperCase()
+        if (letter >= 'A' && letter <= 'Z'){
+           positions+=letter.charCodeAt(0)-64 +" " 
+        }
+    }
+	return positions;
 }
 
 let assert = require("assert")
